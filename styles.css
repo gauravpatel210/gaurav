@@ -1,0 +1,993 @@
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #000000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 180px; /* Add more space on both ends */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow */
+}
+
+/* Logo Styles */
+.navbar .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none; /* Remove bullets */
+  margin-left: auto;
+}
+
+
+.nav-links li {
+  position: relative; /* Needed for underline positioning */
+  padding: 4px;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.3s ease;
+  padding: 10px 15px; /* Adds padding to clickable area */
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #f4b400; /* Changes color on hover or when active */
+}
+
+
+/* Add Underline to Active or Hover Links */
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  content: ""; /* Empty pseudo-element for the line */
+  position: absolute;
+  bottom: 0;
+  left: 15px; /* Adds a small left margin for spacing */
+  right: 15px; /* Adds a small right margin for spacing */
+  height: 2px; /* Line thickness */
+  background: #f4b400; /* Line color */
+  transition: width 0.3s ease;
+  width: 75%;
+  
+}
+
+/* Optional: Adds Smooth Transition for the Underline */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background: #f4b400;
+  width: 0; /* Initially hidden */
+  transition: width 0.3s ease;
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 100px;
+}
+
+.hero-content {
+  max-width: 50%;
+  margin-left: 165px;
+}
+
+.hero-content .greeting {
+  font-size: 1.2rem;
+  color: #f4b400;
+  margin-bottom: 10px;
+ }
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-content .highlight {
+  color: #f4b400;
+}
+
+.hero-content h3 {
+  font-size: 2rem;
+  display: inline-block;
+  min-height: 1em; /* Matches the height of the text */
+  vertical-align: middle; /* Ensures proper alignment */
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+
+.hero-content p {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.hero-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f4b400;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: background 0.3s;
+}
+
+.hero-content .btn:hover {
+  transform: scale(1.05);
+    background-color: #ffcc00;
+}
+
+/* Hero Image */
+.hero-image {
+  max-width: 50%;
+  transform: translateX(60px);
+  
+}
+
+.hero-image img {
+  max-width: 70%;
+  border-radius: 0px;
+}
+
+/* Animations */
+@keyframes dynamic-text {
+  0%, 100% {
+      color: transparent;
+  }
+  50% {
+      color: #fff;
+  }
+}
+
+
+
+
+
+
+/* About Section Background Text */
+.about-background {
+  position: relative;
+  text-align: center;
+  z-index: 1; /* Foreground layer */
+}
+
+.about-background h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  font-size: 200px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Faint white color */
+  z-index: 0; /* Background layer */
+  filter: blur(5px); /* Adds the blur effect */
+  white-space: nowrap;
+  user-select: none;
+}
+
+
+/* About Section Container */
+.container {
+  display: flex;
+  gap: 70px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+  padding: 0 20px;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* Left Content */
+.left-content {
+  margin-left: 165px;
+  flex: 1;
+  max-width: 30%; /* Adjusts for a proportional layout */
+}
+
+.image-and-details {
+  display: flex; /* Align image and details side by side */
+  gap: 20px; /* Adds space between the image and the details */
+  align-items: center; /* Centers the details vertically relative to the image */
+  
+}
+
+.profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #9f9797;
+}
+
+.details li {
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: #9f9797;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+/* Skill Bars */
+
+.skill-bar p {
+  font-size: 1rem;
+  margin: 0;
+  color: #9f9797;
+  margin-bottom: 15px;
+}
+
+.bar {
+  width: 100%;
+  background-color: #333;
+
+  overflow: hidden;
+  height: 10px;
+  margin-bottom: 30px;
+}
+
+.progress {
+  background-color: #e7b841;
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* Right Content */
+.right-content {
+  flex: 1;
+  max-width: 70%; /* Ensures content takes half the container width */
+  color: #9f9797;
+  padding-right: 150px;
+}
+
+.right-content h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 30px; /* Increased spacing for better separation */
+}
+
+.right-content p {
+  margin-bottom: 45px; /* Adds space below the about description */
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #9f9797;
+}
+
+.right-content ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px; /* Ensures no extra margins on the list */
+}
+
+.right-content ul li {
+  display: flex; /* Aligns label and content side by side */
+  align-items: first baseline; /* Ensures proper alignment */
+  margin-bottom: 15px; /* Consistent spacing between items */
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.right-content strong {
+  width: 150px; /* Fixed width for alignment of labels */
+  display: inline-block; /* Maintains structure for strong text */
+  color: #ffffff;
+  
+}
+
+.right-content ul li span {
+  color: #9f9797; /* Content text styling */
+  flex: 1; /* Allows content to take remaining space */
+  word-wrap: break-word; /* Ensures long text wraps properly */
+}
+
+
+.linkedin-btn {
+  display: inline-block;
+  background-color: #e7b841;
+  color: #000000;
+  text-decoration: none;
+  padding: 19px 27px;
+  border-radius: 30px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.linkedin-btn:hover {
+  background-color: #f5c857;
+  box-shadow: 0px 5px 15px rgba(227, 184, 77, 0.4);
+  transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+  }
+
+  .left-content,
+  .right-content {
+    max-width: 100%; /* Take full width on small screens */
+  }
+}
+
+/* Resume Section */
+.resume-section {
+  position: relative;
+  text-align: center;
+  padding: 10px 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.blur-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 200px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Faint white color */
+  z-index: 0; /* Background layer */
+  filter: blur(5px); /* Adds the blur effect */
+  white-space: nowrap;
+  user-select: none;
+}
+
+.resume-content {
+  position: relative;
+  z-index: 1; /* Foreground layer */
+  text-align: center;
+}
+
+.resume-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.resume-content p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+.download-btn {
+  display: inline-block;
+  background-color: #e7b841; /* Bright yellow */
+  color: #000; /* Black text */
+  padding: 19px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;;
+}
+
+.download-btn:hover {
+  background-color: #f5c857; /* Darker yellow on hover */
+  box-shadow: 0px 5px 15px rgba(227, 184, 77, 0.4);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .blur-text {
+    font-size: 150px; /* Smaller text on smaller screens */
+  }
+
+  .resume-content h1 {
+    font-size: 36px;
+  }
+
+  .resume-content p {
+    font-size: 16px;
+  }
+}
+
+
+/* Experience General Section Styling */
+.experience-section {
+  background-color: #000000; /* Dark background */
+  padding: 60px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #ffffff;
+  position: relative;
+}
+
+
+
+/* Experience Card Styling */
+
+
+.experience-card {
+  background-color: #111; /* Slightly lighter dark */
+  padding: 20px;
+  margin: 20px 0 20px 160px; /* Top, right, bottom, left spacing */
+  border-radius: 0px;
+  width: 90%;
+  max-width: 900px;
+  min-height: 380px; /* Ensures consistent height */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  color: #e6e6e6;
+}
+
+
+
+.experience-header {
+  margin-bottom: 20px;
+}
+
+.experience-duration {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e7b841; /* Highlight color for the duration */
+  
+}
+
+.experience-role {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.experience-company {
+  font-size: 1rem;
+  color: #9f9797;
+}
+
+.experience-details p {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.experience-details ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.experience-details ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #9f9797;
+}
+
+/* Add Responsive Design */
+@media (max-width: 768px) {
+  .experience-card {
+    padding: 15px;
+  }
+
+  .experience-role {
+    font-size: 1.2rem;
+  }
+
+  .experience-details ul li {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* Education Section */
+.education-section {
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #000000; /* Slightly darker background for contrast */
+}
+
+
+.education-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+
+.education-line {
+  content: '';
+  display: block;
+  width: 1190px;
+  height: 5px;
+  background: linear-gradient(to right, #ff8c00, #e3b84d, #f5fae4); /* Highlight color */
+  margin: 10px auto;
+  margin-bottom: 35px;
+  }
+
+
+.education-content p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+/* Education Grid */
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  gap: 39px;
+  justify-content: center;
+  margin-inline: 170px;
+}
+
+/* Education Boxes */
+.education-box {
+  background-color: #111; /* Darker color for the boxes */
+  border: 0px solid #444; /* Subtle border */
+  border-radius: 0px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+}
+
+.education-box:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Titles in Boxes */
+.education-box h2 {
+  margin-top: 15px;
+  margin-left: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #e7b841; /* Yellow color to match the project section hover effect */
+}
+
+/* Text inside Boxes */
+.education-box p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  color: #fffbfb;
+}
+
+.education-box ul{
+  margin-bottom: 16px;
+  margin-left: 15px;
+  font-size: 1rem;
+  line-height: 2.5;
+  color: #9f9797;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .education-grid {
+    grid-template-columns: 1fr; /* Stack boxes on smaller screens */
+  }
+}
+
+/* Achievements Section */
+.achievements-section {
+  background-color: #000000; /* Dark background */
+  color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #e6e6e6;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 1190px;
+  height: 5px;
+  background: linear-gradient(to right, #ff8c00, #e3b84d, #f5fae4); /* Highlight color */
+  margin: 10px auto;
+}
+
+.achievement-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.achievement-card {
+  background-color: #111; /* Slightly lighter dark */
+  padding: 25px;
+  border-radius: 0px;
+  width: 569px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+}
+
+.achievement-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }
+
+.achievement-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.achievement-card p {
+  font-size: 1rem;
+  color: #cfcfcf;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  
+}
+
+.certificate-btn {
+  background-color: #e7b841; /* Highlight button color */
+  color: #000000;
+  border: none;
+  padding: 15px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 29px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.certificate-btn:hover {
+  background-color: #f5c857;
+  box-shadow: 0px 5px 15px rgba(227, 184, 77, 0.4);
+}
+
+/* Project section */
+.batman-projects {
+  position: relative;
+  padding: 200px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.wonder-woman-blur-text {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 200px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Faint white color */
+  z-index: 0; /* Background layer */
+  filter: blur(5px); /* Adds the blur effect */
+  white-space: nowrap;
+  user-select: none;
+}
+
+.flash-projects-content {
+  position: relative;
+  z-index: 1; /* Foreground layer */
+}
+
+.flash-projects-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.flash-projects-content p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.green-lantern-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.aquaman-project-card {
+  position: relative;
+  overflow: hidden;
+  width: 330px;
+  margin: 60px;
+  margin-left: 165px;
+   border-radius: 0px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.aquaman-project-card:hover {
+  transform: scale(1.05); /* Zoom in on hover */
+}
+
+.aquaman-project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.superman-project-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.joker-project-details {
+  background-color: #111;
+  padding: 25px;
+  text-align: left;
+}
+
+.joker-project-details h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  color: #fff;
+}
+
+.joker-project-details h3:hover {
+  color: #e7b841; /* Yellow on hover */
+}
+
+.joker-project-details p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.batman-project-card {
+  position: relative;
+  overflow: hidden;
+  width: 390px;
+  margin: 60px;
+    transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.batman-project-card:hover {
+  transform: scale(1.05); /* Zoom in on hover */
+}
+
+.batman-project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.flash-project-details {
+  background-color: #111;
+  padding: 20px;
+  text-align: left;
+}
+
+.flash-project-details h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  color: #fff;
+}
+
+.flash-project-details h3:hover {
+  color: #e7b841; /* Yellow on hover */
+}
+
+.flash-project-details p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.green-lantern-project-card {
+  position: relative;
+  overflow: hidden;
+  width: 330px;
+  margin: 60px;
+  margin-left: 15px;
+  border-radius: 0px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.green-lantern-project-card:hover {
+  transform: scale(1.05); /* Zoom in on hover */
+}
+
+.green-lantern-project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.wonder-woman-project-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cyborg-project-details {
+  background-color: #111;
+  padding: 14px;
+  text-align: left;
+}
+
+.cyborg-project-details h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  color: #fff;
+}
+
+.cyborg-project-details h3:hover {
+  color: #e7b841; /* Yellow on hover */
+}
+
+.cyborg-project-details p {
+  font-size: 16px;
+  color: #ccc;
+  padding-bottom: 20px;
+}
+
+
+/* Contact Section */
+.ironman-contact {
+   color: #fff;
+  padding: 0px 70px;
+  text-align: center;
+}
+
+
+.thor-title h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 26px;
+  position: relative;
+  color: #fff;
+}
+
+
+.thor-title h1::after {
+  content: "Contact";
+  font-size: 200px;
+  color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  font-weight: bold;
+  filter: blur(5px);
+
+  
+}
+
+.thor-title p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 80px;
+}
+
+.hulk-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+}
+
+.hulk-item {
+  flex: 1 1 200px;
+  max-width: 220px;
+  text-align: center;
+}
+
+.hulk-icon-circle {
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+  color: #e7b841;
+}
+
+.hulk-item h3 {
+ padding-top: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hulk-item p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 230px;
+}
+
+.hulk-item a {
+  color: #f4b400;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.hulk-item a:hover {
+  color: #ffcc00;
+}
+
+
+
+
+
+.scroll-appear {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-appear.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
